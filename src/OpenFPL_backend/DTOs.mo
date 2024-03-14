@@ -440,4 +440,20 @@ module DTOs {
     callbackName : Text;
   };
 
+  public type PrivateLeagueDTO = {
+    name: Text;
+    owner: T.PrincipalId;
+    createDate: Int;
+    logo: ?Blob;
+    primaryColour: Text;
+    secondaryColour: Text;
+    entryType: T.EntryType;
+    prizePercentage: Nat8;
+    ownerFeePercentage: Nat8;
+    prizePool: Nat64;
+    ownerFees: Nat64;
+    rewardCategories: [T.RewardCategory];
+    members: [T.PrincipalId];
+  };
+
 };

@@ -108,6 +108,7 @@ module _Types {
     history : List.List<FantasyTeamSeason>;
     profilePicture : ?Blob;
     profilePictureType : Text;
+    privateLeagues: [CanisterId];
   };
 
   public type FantasyTeamSeason = {
@@ -391,4 +392,48 @@ module _Types {
     seasonId : SeasonId;
     canisterId : Text;
   };
+
+  public type PrivateLeague = {
+    name: Text;
+    owner: PrincipalId;
+    createDate: Int;
+    logo: ?Blob;
+    primaryColour: Text;
+    secondaryColour: Text;
+    entryType: EntryType;
+    prizePercentage: Nat8;
+    ownerFeePercentage: Nat8;
+    prizePool: Nat64;
+    ownerFees: Nat64;
+    rewardCategories: [RewardCategory];
+    members: [PrincipalId];
+  };
+
+  public type EntryType = {
+    #Free;
+    #Paid;
+    #Invite;
+  };
+
+  public type RewardCategory = {
+    categoryType: RewardCategoryType;
+    rewardStructure: RewardStructure;
+  };
+
+  public type RewardCategoryType = {
+    #Weekly;
+    #Monthly;
+    #MonthlyClub;
+    #Season;
+  };
+
+  public type RewardStructure = {
+    rewardAmount: Nat64;
+    token: Text;
+    placesPaid: Nat;
+    placePercentages: [Float];
+  };
+
+  
+
 };
